@@ -6,11 +6,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class GuidApplication {
-	@Value("${guid.scale}")
-	private int guidScale;
+	private static final int MAX_SYSTEM_ID = 1295;
+	@Value("${guid.systemid}")
+	private int systemId;
 	
-	public int getGuidScale() {
-		return guidScale;
+	public int getSystemId() {
+		if(systemId > MAX_SYSTEM_ID) {
+			throw new IllegalArgumentException("System id is out of range.");
+		}
+		return systemId;
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(GuidApplication.class, args);

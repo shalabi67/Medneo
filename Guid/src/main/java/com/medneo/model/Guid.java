@@ -12,7 +12,7 @@ public class Guid {
 	GuidApplication guidApplication;
 	
 	int[] guidParts = {0, 0, 0};
-	int guidScale;
+
 	public int[] getGuidParts() {
 		return guidParts;
 	}
@@ -26,17 +26,16 @@ public class Guid {
 			throw new IllegalArgumentException();
 		}
 	}
-	public int getGuidScale() {
-		return guidApplication.getGuidScale();
+	public int getSystemId() {
+		return guidApplication.getSystemId();
 	}
-	public void setGuidScale(int guidScale) {
-		this.guidScale = guidScale;
-	}
+
 	
 	@Override
 	public String toString() {
 		StringBuffer guidBuffer = new StringBuffer();
-		guidBuffer.append(Integer.toString(guidScale, radix));
+		int systemId = getSystemId();
+		guidBuffer.append(Integer.toString(systemId, radix));
 		for(int i=guidParts.length -1;i>=0;i--) {
 			guidBuffer.append(Integer.toString(guidParts[i], radix));
 		}
