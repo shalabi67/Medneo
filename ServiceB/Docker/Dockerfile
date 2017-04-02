@@ -1,5 +1,5 @@
 #docker build -t shalabi67/serviceb .
-#docker run -p 9091:9091 --name -d serviceb shalabi67/serviceb
+#docker run -p 9091:9091 -d --name serviceb shalabi67/serviceb
 
 # our base image
 FROM lwieske/java-8:jre-8u121
